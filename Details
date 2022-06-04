@@ -1,0 +1,108 @@
+
+Topics:
+
+  MongoDb Installation
+    Download and run the MSI
+    
+    bin in env
+      https://codinglead.co/javascript/setting-environment-variables-in-windows-10
+
+    Mongod cmd for starting
+    mongo
+  
+  Advs of Mongod  
+    1. No Normalization
+    2. Flexible Schema
+    3. BSON storing --> Efficient 
+
+
+  MongoDB Capacity
+    100 levels nested structure
+    max-size for document ---> 16mb
+
+
+      Mongo                                  MySql
+
+    DB, Collections, Documents         DB, Tables, Rows, Columns ( id, name,  )
+    ( key, value repeats the 
+    keys again & again )    
+    BSON is used to store Data 
+    Efficient and smart way to store
+    in mongo  
+
+    db['movie'].find({})                  select * from movie;
+    
+    db['movie'].find({ id: 6 })       SELECT * FROM movies WHERE id = 6;
+
+    db.collection.find({              SELECT * FROM movies where rating BETWEEN 8 and 8.8;
+      rating: {
+        "$gt": 8,
+        "$lt": 8.8
+      }
+    });
+
+    db.collection.find({              SELECT id, title FROM movies where id BETWEEN 8 and 11;
+      rating: {
+        "$gt": 8,
+        "$lt": 8.8
+      }
+    },
+    {
+      "name": 1,
+      "id": 1,
+      "_id": 0
+    });
+
+
+    db.collection.find({               SELECT * FROM movies where title in (List Names );
+      name: {
+        "$in": [
+          "Iron man 2",
+          "Interstellar"
+        ]
+      }
+    })
+
+    db.collection.find({               SELECT * FROM movies where title not in (List Names );
+      name: {
+        "$nin": [
+          "Iron man 2",
+          "Interstellar",
+          "No Country for Old Men"
+        ]
+      }
+    });
+
+    db.collection.find({
+      "$or": [
+        {
+          name: {
+            "$in": [
+              "Jai Bhim",
+              "The Avengers"
+            ]
+          }
+        },
+        {
+          rating: {
+            "$gt": 8
+          }
+        }
+      ]
+    })
+
+  shows dbs; ----> List all the Databases
+
+  use DB-Name;---> if there is a DB 
+                    it will go to that DB and it will be available to do some on it.
+                   else
+                    it will create a new one,  it will be available to do some on it.
+
+
+            
+ 
+
+
+
+
+
